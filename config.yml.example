@@ -1,1 +1,25 @@
+# Example configuration for the Dropbox file automation
+# Rename this file to config.yml before running the automation.
+
+name: "File Automation - Dropbox to Data Collector"
+organization_id: 12345
+class_name: "Integrations::Organizations::MoveFilesToDataCollector::ScheduledWorker"
+
+# Email / Slack / Notifications (optional)
+responsible_person: "you@example.com"
+
+# Cron scheduling (example: run every day at 23:30)
+cron_config: "30 23 * * *"
+
+# Type of integration (leave default unless needed)
+integration_type: 0
+queue_name: "integrations_scheduled"
+
+# Enable/Disable the automation
+enabled: true
+
+description: |
+  This automation monitors a Dropbox folder,
+  transforms CSV files (clean headers, trim fields, format dates),
+  and moves the processed files to the correct destination.
 
