@@ -20,6 +20,25 @@ It detects files, cleans/transforms data when needed, and moves them to the corr
 
 ---
 
+### 🧠 Architecture diagram
+
+```mermaid
+flowchart LR
+    A[User uploads CSV to Dropbox] --> B[List and detect new files]
+    B --> C{Identify file type by prefix<br/><code>CUST</code> / <code>ORD</code> / <code>INV</code>}
+    C -->|Customer file| D[Clean + transform CSV\n Remove extra spaces / fix invalid dates / normalize phone numbers]
+    C -->|Order file| E[Apply order transformation rules\n generate External ID]
+    C -->|Invoice file| F[Apply invoice transformation rules]
+
+    D --> G[Upload cleaned CSV to destination folder]
+    E --> G
+    F --> G
+
+    G --> H[Delete original file from Dropbox]
+```
+
+---
+
 ## 📁 Project structure
 
 ```
