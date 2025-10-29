@@ -22,30 +22,27 @@ It detects files, cleans/transforms data when needed, and moves them to the corr
 
 ## 📁 Project structure
 
-´´´
+```
 /ruby_dropbox_file_automation
 │── helpers/
-│ ├── constants.rb # Folder mappings and CSV headers
-│ ├── main.rb # Main logic to process files
-│ └── scheduled_worker.rb # Background execution
-│── config.yml.example # Editable configuration template
-│── README.md
-
-´´´
----
-
+│   ├── constants.rb         # File mappings and CSV headers
+│── main.rb                  # Main logic that processes files
+│── scheduled_worker.rb      # Background execution (cron-style)
+│── config.yml.example       # Editable configuration template
+└── README.md
+```
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-| Component | Technology |
-|----------|------------|
-| Language | Ruby |
-| Integration | Dropbox API |
-| File processing | CSV |
-| Scheduling | Cron worker |
-| Config | YAML |
+| Component      | Technology   |
+|----------------|--------------|
+| Language       | Ruby         |
+| Integration    | Dropbox API  |
+| File processing| CSV          |
+| Scheduling     | Cron worker  |
+| Config         | YAML         |
 
 ---
 
@@ -53,7 +50,41 @@ It detects files, cleans/transforms data when needed, and moves them to the corr
 
 Create your own configuration file from the template:
 
-```bash
+```sh
 cp config.yml.example config.yml
+```
 
+Then edit `config.yml` to set:
+
+- API keys
+- Folder paths
+- Cron settings (if scheduled)
+
+---
+
+## ▶️ How to Run
+
+```sh
+ruby main.rb
+```
+
+Or, if using the scheduled worker:
+
+```sh
+ruby scheduled_worker.rb
+```
+
+---
+
+## 🚀 Purpose
+
+This automation avoids manual handling of files uploaded to Dropbox.  
+It ensures that CSVs are standardized, validated, and routed to their correct destination automatically.
+
+---
+
+### ✉️ Contact
+
+If you have questions or want to collaborate:  
+**ivan.rivas00@gmail.com**
 
